@@ -26,7 +26,7 @@ namespace RestauranteAPI.Controllers
             return Ok(listaProductos); //devuelve Http:200 y JSON
         }
 
-        [HttpPost] //
+        [HttpPost] //Post permite crear datos nuevos
 
         public async Task<ActionResult<Productos>> PostProductos(Productos productos)
         {
@@ -35,7 +35,7 @@ namespace RestauranteAPI.Controllers
             return CreatedAtAction(nameof(GetProductos), new { id = productos.IdProducto }, productos);
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("{id}")] //Permite actualizar datos existentes
         public async Task<ActionResult<Productos>> PutProductos(int id, Productos productos)
         {
             if (id != productos.IdProducto) return BadRequest(); //BadRequest retorna Http:400/petición invalida por el usuario 
@@ -44,12 +44,12 @@ namespace RestauranteAPI.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{id}")]//elimina datos -> Nota: es importante especificar WHERE para evitar eliminar toda la tabla
 
         public async Task<ActionResult<Productos>>DeleteProductos(int id)
         {
-            var producto = await _context.Productos.FindAsync(id);
-            if (producto == null) return NotFound();
+            var producto = await _context.Productos.FindAsync(id); //En este caso se elimina un productos basado en su id
+            if (producto == null) return NotFound();//evita inputs invalidos (Ej. p.id == 100)
 
             _context.Productos.Remove(producto);
             await _context.SaveChangesAsync();

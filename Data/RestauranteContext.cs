@@ -9,5 +9,7 @@ namespace RestauranteAPI.Data
         }
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<Productos> Productos { get; set; }
+
+        public DbSet<Clientes> Clientes { get; set; }
     }
 }
