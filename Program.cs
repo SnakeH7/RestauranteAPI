@@ -6,6 +6,7 @@ using RestauranteAPI.Data;
 using RestauranteAPI.Models;
 
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -35,6 +36,15 @@ builder.Services.AddDbContext<RestauranteContext>(opciones =>
     opciones.UseSqlServer(builder.Configuration.GetConnectionString("ConexionRestaurante"));
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("PoliticaReact", app =>
+    {
+        app.AllowAnyOrigin()  // Permite que cualquier URL (como el localhost de React) se conecte
+           .AllowAnyHeader()  // Permite que nos envíen el JWT en las cabeceras
+           .AllowAnyMethod(); // Permite usar GET, POST, PUT, DELETE
+    });
+});
 
 var app = builder.Build();
 
@@ -46,6 +56,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("PoliticaReact");
 
 app.UseAuthentication();
 
