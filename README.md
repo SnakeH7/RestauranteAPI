@@ -17,10 +17,12 @@ Un sistema integral "End-to-End" para la gestión segura de menús de restaurant
 
 ## 📸 Vistas del Proyecto
 
-* **Pantalla de Login:** ![Pantalla de Login](./docs/Captura%20de%20pantalla%202026-05-15%20152659.png)
+* **Pantalla de Login:** ![<img width="1287" height="836" alt="Captura de pantalla 2026-05-15 152659" src="https://github.com/user-attachments/assets/64b7ff37-f965-43ba-90db-aee3c4a41759" />
+]
   
 
-* **Dashboard de Menú:** ![Dashboard del Menú](./docs/Captura%20de%20pantalla%202026-05-15%20152738.png)
+* **Dashboard de Menú:** ![<img width="1901" height="893" alt="Captura de pantalla 2026-05-15 152738" src="https://github.com/user-attachments/assets/ab8eed2d-6904-4aa6-ae4e-6bcdb5f6227d" />
+]
 
 ## 🛠️ Stack Tecnológico
 
